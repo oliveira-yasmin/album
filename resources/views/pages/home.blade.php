@@ -23,18 +23,21 @@
 
   <section class="container mt-4">
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-4 mb-4">
-        <div class="card shadow-sm h-100">
-          <img class="bd-placeholder-img card-img-top" src="https://www.osmais.com/wallpapers/201209/dia-de-chuva-wallpaper.jpg" alt="">
-          <div class="card-body">
-            <p class="card-text">"Uma foto qualquer">
-            <div class="d-flex justify-content-between align-items-center">
-              <small class="text-muted text-center">Por: Fernando</small>
-              <small class="text-muted text-center">10/08/2020</small>
+      @foreach ($photos as $photo)
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          <div class="card shadow-sm h-100">
+            <img class="bd-placeholder-img card-img-top" src="https://www.osmais.com/wallpapers/201209/dia-de-chuva-wallpaper.jpg" alt="">
+            <div class="card-body">
+              <p class="card-text">{{$photo->title}}
+              <div class="d-flex justify-content-between align-items-center">
+                <small class="text-muted text-center">Por: Fernando</small>
+                <small class="text-muted text-center">{{$photo->date}}</small>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      @endforeach
+
       <div class="col-12 col-md-6 col-lg-4 mb-4">
         <div class="card shadow-sm h-100">
           <img class="bd-placeholder-img card-img-top" src="https://i0.wp.com/alcidesmelhadofilho.com.br/wp-content/uploads/2017/01/space-desktop-wallpapers-cool-background-quality-wallpaper-definition-high-images.jpg?ssl=1" alt="">
