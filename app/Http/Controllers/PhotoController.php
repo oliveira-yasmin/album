@@ -15,7 +15,7 @@ class PhotoController extends Controller
     public function index()
     {
         $photos = Photo::all();
-        return view('/pages/home', ['photos' => $photos]);
+        return view('/pages/home', ['photos' => $photos]); 
     }
 
     /**
@@ -25,7 +25,7 @@ class PhotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages/photo_form');
     }
 
     /**
@@ -36,7 +36,20 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Criação de um objeto tipo foto
+        $photo = new Photo();
+
+        // Alterando os atributos do objeto
+        $photo->title = $request->title;
+        $photo->date = $request->date;
+        $photo->description = $request->description;
+        $photo->photo_url = "teste";
+
+        // Inserindo no banco de dados
+        $photo->save();
+
+        // Redirecionando para a página inicial
+        return redirect('/');
     }
 
     /**
