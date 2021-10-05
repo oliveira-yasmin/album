@@ -71,7 +71,8 @@ class PhotoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $photo = Photo::findOrFail($id);
+        return view('pages/photo_form', ['photo'=>$photo]);
     }
 
     /**
@@ -83,7 +84,20 @@ class PhotoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Retorna a foto do banco de dados
+        $photo = Photo::findOrFail($request->id);
+
+        // Alterando os atributos do objeto
+        $photo->title = $request->title;
+        $photo->date = $request->date;
+        $photo->description = $request->description;
+        $photo->photo_url = "teste";
+
+        // Alterando no banco de dados
+        $photo->update();
+
+        // Redirecionando para a página inicial
+        return redirect('/');
     }
 
     /**

@@ -22,3 +22,9 @@ Route::get('/photos/new', [PhotoController::class, 'create']);
 
 // Rota que insere uma nova foto no banco de dados
 Route::post('/photos', [PhotoController::class, 'store']);
+
+// Rota que exibe o formulário de edição
+Route::get('/photos/edit/{id}', [PhotoController::class, 'edit']);
+
+// Rota que altera uma foto no banco de dados
+Route::put('/photos/{id}', [PhotoController::class, 'update']);
